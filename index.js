@@ -5,7 +5,15 @@ const app = express();
 const { initializeDatabase } = require("./db/db.connect");
 const { Student } = require("./models/students.model");
 
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 initializeDatabase();
