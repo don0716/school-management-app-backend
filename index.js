@@ -67,19 +67,19 @@ app.put("/students/:id", async (req, res) => {
 });
 
 app.delete("/students/:id", async (req, res) => {
-  const teacherId = req.params.id;
-  console.log(teacherId);
+  const studentId = req.params.id;
+  console.log(studentId);
 
   try {
-    const deleteTeacher = await Teacher.findByIdAndDelete(teacherId);
+    const deleteStudent = await Student.findByIdAndDelete(studentId);
 
-    if (!deleteTeacher) {
-      return res.status(404).json({ error: "Teacher not found" });
+    if (!deleteStudent) {
+      return res.status(404).json({ error: "Student not found" });
     }
 
     res.status(200).json({
-      message: "Teacher deleted successfully",
-      teacher: deleteTeacher,
+      message: "Student deleted successfully",
+      teacher: deleteStudent,
     });
   } catch (error) {
     console.error(error);
