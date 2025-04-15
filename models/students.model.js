@@ -4,8 +4,14 @@ const studentSchema = new mongoose.Schema({
   name: String,
   age: Number,
   gender: String,
-  marks: Number,
-  attendance: Number,
+  marks: {
+    type: Number,
+    default: 0,
+  },
+  attendance: {
+    type: Number,
+    default: 0,
+  },
   grade: String,
 });
 
